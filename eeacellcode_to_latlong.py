@@ -22,7 +22,7 @@ def convert_eeacellcode_to_latlon(eeacellcode, from_epsg=3035, to_epsg=4326):
     # Function to convert ETRS89-LAEA coordinates to latitude and longitude
     def ETRS89_LAEA_to_latlon(easting, northing):
         lon, lat = transformer.transform(northing, easting)
-        return lon, lat
+        return lat,lon 
 
     # Function to convert EEA cell code to ETRS89-LAEA coordinates
     def eeacellcode_to_ETRS89_LAEA(eeacellcode):
@@ -56,5 +56,5 @@ def convert_eeacellcode_to_latlon(eeacellcode, from_epsg=3035, to_epsg=4326):
     # Convert EEA cell code to ETRS89-LAEA coordinates
     easting, northing = eeacellcode_to_ETRS89_LAEA(eeacellcode)
     # Convert ETRS89-LAEA coordinates to latitude and longitude
-    lon, lat = ETRS89_LAEA_to_latlon(easting, northing)
-    return lon, lat
+    lat,lon = ETRS89_LAEA_to_latlon(easting, northing)
+    return lat,lon
